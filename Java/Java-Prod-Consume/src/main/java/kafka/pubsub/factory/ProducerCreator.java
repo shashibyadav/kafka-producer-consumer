@@ -1,6 +1,7 @@
 package kafka.pubsub.factory;
 import java.util.Properties;
 
+import kafka.pubsub.business.MessageObj;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -8,7 +9,7 @@ import org.apache.kafka.common.serialization.LongSerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 import kafka.pubsub.config.KafkaConstant;
 public class ProducerCreator {
-    public static Producer<Long, String> createProducer() {
+    public static Producer<Long, MessageObj> createProducer() {
         Properties props = new Properties();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, KafkaConstant.KAFKA_BROKERS);
         props.put(ProducerConfig.CLIENT_ID_CONFIG, KafkaConstant.CLIENT_ID);

@@ -18,7 +18,12 @@ public class CustomSerializer implements Serializer<MessageObj> {
     public byte[] serialize(String s, MessageObj messageObj) {
         byte[] response = null;
         ObjectMapper objectMapper = new ObjectMapper();
-        return new byte[0];
+        try {
+            response = objectMapper.writeValueAsString(messageObj).getBytes();
+        } catch (Exception ex) {
+            System.out.println("Error in serialization of object" + ex.getMessage());
+        }
+        return response;
     }
 
     @Override
