@@ -41,7 +41,7 @@ public class RunProducer {
                 counter++;
             }
         } catch (Exception ex) {
-            System.out.println("Error in creating producer");
+            System.out.println("Error in creating producer" + ex.getMessage());
         }
     }
 
