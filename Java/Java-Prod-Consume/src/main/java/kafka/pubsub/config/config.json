@@ -1,0 +1,14 @@
+{
+  "KAFKA_BROKERS": [{
+    "host": "localhost",
+    "port": "9092"
+  }],
+  "MESSAGE_COUNT": 1000,
+  "CLIENT_ID": "client1",
+  "TOPIC_NAME": "first-topic",
+  "GROUP_ID_CONFIG": "consumerGroup1",
+  "MAX_NO_MESSAGE_FOUND_COUNT": 100,
+  "OFFSET_RESET_LATEST": "latest",
+  "OFFSET_RESET_EARLIER": "earliest",
+  "MAX_POLL_RECORDS": 1
+}
