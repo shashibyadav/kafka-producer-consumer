@@ -25,12 +25,13 @@ public class RunProducer {
     }
     public static void runProducer() {
         try {
-            Producer<Long, MessageObj> producer = ProducerCreator.createProducer();
+            Producer<String, MessageObj> producer = ProducerCreator.createProducer();
             int counter = 0;
             while(true) {
                 MessageObj message = RunProducer.getMessageObjectFromStd();
                 String recordIndex = uniqueId + "_" + counter;
-                ProducerRecord<Long, MessageObj> record = new ProducerRecord<Long, MessageObj>(KafkaConstant.TOPIC_NAME, message);
+                message.setKey(recordIndex);
+                ProducerRecord<String, MessageObj> record = new ProducerRecord<String, MessageObj>(KafkaConstant.TOPIC_NAME, recordIndex, message);
                 try {
                     RecordMetadata metadata = producer.send(record).get();
                     System.out.println("Record sent with key " + uniqueId + " to partition " + metadata.partition()

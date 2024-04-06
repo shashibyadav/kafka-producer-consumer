@@ -9,13 +9,13 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 public class RunConsumer {
 
     public static void runConsumer() {
-        Consumer<Long, MessageObj> consumer = null;
+        Consumer<String, MessageObj> consumer = null;
         try {
             consumer = ConsumerCreator.createConsumer();
             int noMessageFound = 0;
 
             while (true) {
-                ConsumerRecords<Long, MessageObj> consumerRecords = consumer.poll(1000);
+                ConsumerRecords<String, MessageObj> consumerRecords = consumer.poll(1000);
                 if (consumerRecords.count() == 0) {
                     noMessageFound++;
                     if (noMessageFound > KafkaConstant.MAX_NO_MESSAGE_FOUND_COUNT) {

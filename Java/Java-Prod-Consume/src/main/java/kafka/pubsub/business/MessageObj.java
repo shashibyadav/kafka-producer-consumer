@@ -3,12 +3,12 @@ package kafka.pubsub.business;
 import java.io.Serializable;
 
 public class MessageObj implements Serializable {
-    private long key;
+    private String key;
     private String data;
 
     public MessageObj () {}
 
-    public MessageObj (long key, String data) {
+    public MessageObj (String key, String data) {
         this.key = key;
         this.data = data;
     }
@@ -18,11 +18,11 @@ public class MessageObj implements Serializable {
         return "{ key : " + this.key + ", data : " + this.data + " }";
     }
 
-    public long getKey() {
+    public String getKey() {
         return key;
     }
 
-    public void setKey(long key) {
+    public void setKey(String key) {
         this.key = key;
     }
 
